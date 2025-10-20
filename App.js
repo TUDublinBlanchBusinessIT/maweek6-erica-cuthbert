@@ -1,5 +1,5 @@
 import  React, { useState } from 'react';
-import { StyleSheet, View, Image, Dimensions } from 'react-native';
+import { StyleSheet, View, Image, Dimensions, Text, TouchableOpacity, Alert } from 'react-native';
 import Swiper from 'react-native-swiper';
 import PersonalInfo from './components/PersonalInfo';
 import MovieBooking from './components/MovieBooking';
@@ -12,6 +12,13 @@ export default function App() {
       numberOfSeats: 0,
       balcony: 0,
   });
+
+  async function saveData() {
+    const uuid = Crypto.randomUUID();
+    await AsyncStorage.setItem(uuid, JSON.stringify(booking));
+    alert("Saved with UUID: " + uuid);
+    Alert.alert("Saved with UUID: " + uuid);
+  }
 
   return (
     <View style={styles.screencontainer}>
