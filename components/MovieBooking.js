@@ -5,7 +5,7 @@ import DatePicker from '../components/DatePicker';
 
 import {useState} from 'react';
 
-export default function MovieBooking({screenstyle}) {
+export default function MovieBooking({screenstyle,  data, setData}) {
   const [movieChoice, setMovieChoice] = useState("");
   const [totalTickets, setTotaltickets] = useState(1);
   const [balcony, setBalcony] = useState(false);
